@@ -1,7 +1,7 @@
 <style>
 </style>
 <template>
-<p>this is {{name}}!</p>
+  <p>this is {{name}}!</p>
 </template>
 <script>
 module.exports = {
