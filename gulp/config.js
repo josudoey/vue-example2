@@ -2,7 +2,6 @@
 //ref https://github.com/lpiepiora/bower-webpack-plugin
 var webpack = require("webpack");
 var path = require("path");
-var BowerWebpackPlugin = require('bower-webpack-plugin');
 
 var projectPath = path.resolve(__dirname, "..");
 var contentBase = path.resolve(projectPath, "build");
