@@ -1,0 +1,22 @@
+; .editorconfig
+[**.json]
+indent_style = space
+indent_size = 2
+
+[**.js]
+indent_style = space
+indent_size = 2
+break_chained_methods = false
+end_with_newline = true
+max_preserve_newlines = 2
+space_after_anon_function = true
+space_before_conditional = true
+
+[**.css]
+indent_style = space
+indent_size = 2
+
+[**.html]
+indent_style = space
+indent_size = 2
+

@@ -1,0 +1,13 @@
+build
+node_modules
+coverage
+coverage
+docs
+node_modules
+bower_components
+dist
+public
+
+*.swp
+*.swo
+*.log
