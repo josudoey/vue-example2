@@ -18,6 +18,11 @@ var config = module.exports = {
       publicPath: publicPath,
       filename: "[name].js"
     },
+    resolve: {
+      alias: {
+        vue: 'vue/dist/vue.js'
+      }
+    },
     module: {
       loaders: [{
         test: /\.html$/,
@@ -52,6 +57,10 @@ var config = module.exports = {
     publicPath: publicPath,
     stats: {
       colors: true
+    },
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: 1000
     }
   },
   www: {

@@ -2,44 +2,56 @@
 var Vue = require("vue");
 var VueRouter = require("vue-router");
 Vue.use(VueRouter)
-var App = Vue.extend({
+
+//ref http://router.vuejs.org/en/advanced/lazy-loading.html
+var router = new VueRouter({
+  base: __dirname,
+  routes: [{
+    path: '/foo',
+    component: function (resolve) {
+      require(['./components/foo'], resolve);
+    }
+  }, {
+    path: '/bar',
+    name: 'bar',
+    component: function (resolve) {
+      require(['./components/bar'], resolve);
+    }
+  }, {
+    path: '/bar/:name',
+    component: function (resolve) {
+      require(['./components/bar'], resolve);
+    }
+  }]
+})
+
+var App = new Vue({
+  el: "#app",
+  router: router,
   props: ["name"],
   data: function () {
     return {
       message: ""
     };
   },
-  ready: function () {
+  created: function () {
     var self = this;
-    this.$on("message", function (msg) {
+    self.$on("message", function (msg) {
       self.message = msg;
-    });
+    })
   },
   methods: {
 
   }
-})
-
-var router = new VueRouter()
-
-router.map({
-  '/foo': {
-    component: function (resolve) {
-      require(['./components/foo'], resolve);
-    }
-  },
-  '/bar': {
-    component: function (resolve) {
-      require(['./components/bar'], resolve);
-    },
-    subRoutes: {
-      '/:name': {
-        component: function (resolve) {
-          require(['./components/bar'], resolve);
-        }
-      }
-    }
-  }
 });
-router.start(App, '#app');
+
+//ref https://github.com/vuejs/vue-router/blob/dev/examples/navigation-guards/app.js#L100
+//ref http://router.vuejs.org/en/api/router-instance.html
+router.beforeEach(function (to, from, next) {
+  next();
+});
+
+router.afterEach(function (hook) {});
+
+window.App = App;
 

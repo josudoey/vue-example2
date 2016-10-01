@@ -6,12 +6,24 @@ var template = require("./template.html");
 var vm = module.exports = Vue.extend({
   template: template,
   props: {},
+  beforeRouteEnter: function (to, from, next) {
+    //ref http://router.vuejs.org/en/advanced/data-fetching.html
+  },
   created: function () {
-    this.$dispatch("message", "bar create name=" + this.$route.params.name);
+    // https://vuejs.org/guide/components.html#Composing-Components
+    this.send("bar create name=" + this.$route.params.name);
   },
   beforeDestroy: function () {
-    console.log("test");
-    this.$dispatch("message", "bar destroyed");
+    this.send("bar destroyed");
+  },
+  methods: {
+    send: function (msg) {
+      var p = this.$parent;
+      if (!p) {
+        return;
+      };
+      p.$emit("message", msg);
+    }
   }
 });
 
