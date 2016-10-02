@@ -16,5 +16,5 @@ $ npm run build
 ## run server
 
 ```
-$ npm run app:start -- --port 8080
+$ npm run dev -- --port 8080
 ```
