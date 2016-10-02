@@ -19,14 +19,14 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="#">Home</a>
+              <router-link :to="{name:'home'}">Home</router-link>
             </li>
             <li>
               <!-- https://router.vuejs.org/en/api/router-link.html -->
-              <router-link to="/foo">Foo</router-link>
+              <router-link :to="{name:'foo'}">Foo</router-link>
             </li>
             <li>
-              <router-link to="/alert">Alert</router-link>
+              <router-link :to="{name:'alert'}">Alert</router-link>
             </li>
 
             <li class="dropdown">

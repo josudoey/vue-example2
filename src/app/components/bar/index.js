@@ -3,7 +3,7 @@
 require("./style.css");
 var Vue = require("vue");
 var template = require("./template.html");
-var vm = module.exports = Vue.extend({
+var vm = module.exports = {
   template: template,
   props: {},
   data: function () {
@@ -17,6 +17,19 @@ var vm = module.exports = Vue.extend({
   beforeDestroy: function () {
     console.log("bar beforeDestroy");
   },
+  beforeRouteEnter: function (to, from, next) {
+    console.log("bar beforeRouteEnter");
+    next();
+  },
+  beforeRouteLeave: function (to, from, next) {
+    console.log("bar beforeRouteLeave");
+    if (this.saved || window.confirm('Are you sure you want to navigate away?')) {
+      next()
+    } else {
+      next(false)
+    }
+
+  },
   methods: {
     send: function (msg) {
       // https://vuejs.org/guide/components.html#Composing-Components
@@ -27,5 +40,5 @@ var vm = module.exports = Vue.extend({
       p.$emit("message", msg);
     }
   }
-});
+};
 

@@ -7,43 +7,59 @@ var Vue = require("vue");
 var VueRouter = require("vue-router");
 Vue.use(VueRouter)
 
+var Home = {
+  data: function () {
+    var page = this.$route.params.page || "Home";
+    return {
+      page: page
+    }
+  },
+  template: "<span><h4>This is {{page}}!!<h4></span>",
+  watch: {
+    $route: function (val, old) {
+      var page = this.$route.params.page || "Home";
+      this.page = page;
+    }
+  }
+};
+
 var router = new VueRouter({
   base: __dirname,
+  linkActiveClass: 'active',
   routes: [{
     path: '/alert',
+    name: 'alert',
     component: function (resolve) {
       //ref http://router.vuejs.org/en/advanced/lazy-loading.html
       require(['./components/alert'], resolve);
     }
   }, {
     path: '/foo',
+    name: 'foo',
     component: function (resolve) {
       require(['./components/foo'], resolve);
     }
   }, {
     path: '/bar',
     name: 'bar',
-    beforeEnter: function (to, from, next) {
-      //ref http://router.vuejs.org/en/advanced/navigation-guards.html#incomponent-guards
-      console.log("bar beforeEnter");
-      next();
-    },
     component: function (resolve) {
       require(['./components/bar'], resolve);
-    },
+    }
+  }, {
+    path: '/',
+    name: 'home',
+    component: Home,
     children: [ //ref http://router.vuejs.org/en/essentials/nested-routes.html
       {
-        path: '/:id',
-        beforeEnter: function (to, from, next) {
-          //ref http://router.vuejs.org/en/advanced/navigation-guards.html#incomponent-guards
-          console.log("bar beforeEnter");
-          next();
-        },
-        component: function (resolve) {
-          require(['./components/bar'], resolve);
-        }
+        path: '/:page',
       }
     ]
+  }, {
+    path: '/:tail*',
+    name: '404',
+    component: {
+      template: "'<span><h3>404 page not found.<h3><br />path={{$route.path}}<br />params={{$route.params}}</span>"
+    }
   }]
 })
 
