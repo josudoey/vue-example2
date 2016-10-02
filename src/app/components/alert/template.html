@@ -1,0 +1,11 @@
+<span>
+<div class="input-group">
+  <input type="textbox" class="form-control" @keyup.enter="$alert($event.target.value)"  v-model="message" placeholder="<message> + enter"></input>
+  <div class="input-group-btn">
+  <button class="btn btn-info" @click="$alert.info(message)">Info</button>
+  <button class="btn btn-success" @click="$alert.success(message)">Success</button>
+  <button class="btn btn-warning" @click="$alert.warn(message)">Warn</button>
+  <button class="btn btn-danger" @click="$alert.error(message)">Error</button>
+  </div>
+</div>
+</span>

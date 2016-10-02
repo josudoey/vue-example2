@@ -1,4 +1,14 @@
 <span>
-  <p>this is bar!</p><br />
-  <span v-if="$route.params.name"> name={{$route.params.name}}</span>
+  <p>this is bar! 
+  <span v-if="$route.query.id">id={{$route.query.id}}</span>
+</p><br />
+
+<!--ref  https://vuejs.org/guide/components.html#Composing-Components -->
+<div class="input-group">
+  <input type="textbox" class="form-control" @keyup.enter="send($event.target.value)" v-model="message" placeholder="<message> + enter"></input>
+  <div class="input-group-btn">
+    <button class="btn btn-info" @click="send(message)">Send</button>
+  </div>
+</div>
+
 </span>
