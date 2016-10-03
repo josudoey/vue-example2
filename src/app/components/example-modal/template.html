@@ -1,0 +1,18 @@
+<span>
+  <h4>modal example! {{message}}</h4>
+  <modal title="Modal Title" :show="showBase" @ok="showBase=false;ok()" @cancel="showBase=false;cancel()" @keyup.esc="showBase=false;cancel()">
+    Base Modal
+  </modal>
+
+  <modal title="Modal Title" :show="showModal" @ok="showModal=false;ok()" @cancel="showModal=false;cancel()">
+    <div>Modal</div>
+    <div slot="header">Modal Header</div>
+    <div slot="title">Modal Title</div>
+    <div slot="footer">Modal Footer</div>
+  </modal>
+  <div class="input-group-btn">
+    <button class="btn btn-info" @click="showBase=true">Base</button>
+    <button class="btn btn-info" @click="showModal=true">Modal</button>
+  </div>
+</div>
+</span>

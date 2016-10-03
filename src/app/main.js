@@ -46,6 +46,12 @@ var router = new VueRouter({
       require(['./components/bar'], resolve);
     }
   }, {
+    path: '/modal',
+    name: 'example-modal',
+    component: function (resolve) {
+      require(['./components/example-modal'], resolve);
+    }
+  }, {
     path: '/',
     name: 'home',
     component: Home,
