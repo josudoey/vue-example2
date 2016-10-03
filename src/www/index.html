@@ -34,13 +34,13 @@
               <ul class="dropdown-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="#action/empty">Action</a></li>
+                <li><a href="#action/another">Another action</a></li>
+                <li><a href="#action/else">Something else here</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
+                <li><a href="#link/sparated">Separated link</a></li>
+                <li><a href="#link/more">One more separated link</a></li>
               </ul>
             </li>
           </ul>
@@ -57,8 +57,8 @@
         <!-- /.navbar-collapse -->
     </nav>
     <div class="container">
+      <h5>{{message}}</h5>
       <div class="jumbotron">
-        <h5>message:{{message}}</h5>
         <transition name="slide">
           <keep-alive>
             <router-view ref="view"></router-view>

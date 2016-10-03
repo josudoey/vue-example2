@@ -1,7 +1,10 @@
 <style>
 </style>
 <template>
-  <p>this is {{name}}!</p>
+  <span>
+    <h4>this is {{name}}!</h4>
+    <p>see src/app/components/foo/index.vue</p>
+  <span>
 </template>
 <script>
 module.exports = {

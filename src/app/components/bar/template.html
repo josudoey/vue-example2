@@ -1,14 +1,12 @@
 <span>
-  <p>this is bar! 
+  <h4>this is bar!</h4>
+  <p>see src/app/components/bar/template.html</p>
   <span v-if="$route.query.id">id={{$route.query.id}}</span>
-</p><br />
-
 <!--ref  https://vuejs.org/guide/components.html#Composing-Components -->
 <div class="input-group">
-  <input type="textbox" class="form-control" @keyup.enter="send($event.target.value)" v-model="message" placeholder="<message> + enter"></input>
+  <input type="textbox" class="form-control" @keyup.enter="send($route.query.id+': '+$event.target.value)" v-model="message" placeholder="<message> + enter"></input>
   <div class="input-group-btn">
-    <button class="btn btn-info" @click="send(message)">Send</button>
+    <button class="btn btn-info" @click="send($route.query.id+': '+message)">Send</button>
   </div>
 </div>
-
 </span>
