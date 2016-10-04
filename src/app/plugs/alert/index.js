@@ -9,8 +9,8 @@ Plug.install = function (Vue, opts) {
   var el = opts.el;
   var vm = $(el);
   if (vm.length === 0) {
-    vue = $('<div style="position: absolute; right: 0; margin-bottom: 0; z-index:' + zIndex + '"></div>');
-    vue.prependTo("body");
+    vm = $('<div style="position: absolute; right: 0; margin-bottom: 0; z-index:' + zIndex + '"></div>');
+    vm.prependTo("body");
   }
 
   var style = {
@@ -19,6 +19,7 @@ Plug.install = function (Vue, opts) {
     "warn": "alert-warning",
     "error": "alert-danger"
   }
+
   var makeAlertFunc = function (type) {
     var cls = style[type];
     return function (msg, ms) {
