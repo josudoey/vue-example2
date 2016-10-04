@@ -1,29 +1,31 @@
-<div v-show="show" :transition="transition">
-  <div class="modal" @click.self="clickMask">
-    <div class="modal-dialog" :class="modalClass">
-      <div class="modal-content">
-        <!--Header-->
-        <div class="modal-header">
-          <slot name="header">
-            <a type="button" class="close" @click="cancel">x</a>
-            <h4 class="modal-title">
+<transition name="transition">
+  <div v-show="show">
+    <div class="modal fade" @click.self="clickMask">
+      <div class="modal-dialog" :class="modalClass">
+        <div class="modal-content">
+          <!--Header-->
+          <div class="modal-header">
+            <slot name="header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="cancel"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">
                 <slot name="title">{{title}}</slot>
               </h4>
-          </slot>
-        </div>
-        <!--Container-->
-        <div class="modal-body">
-          <slot></slot>
-        </div>
-        <!--Footer-->
-        <div class="modal-footer">
-          <slot name="footer">
-            <button type="button" :class="cancelClass" @click="cancel">{{cancelText}}</button>
-            <button type="button" :class="okClass" @click="ok">{{okText}}</button>
-          </slot>
+            </slot>
+          </div>
+          <!--Container-->
+          <div class="modal-body">
+            <slot></slot>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer">
+            <slot name="footer">
+              <button type="button" :class="cancelClass" @click="cancel">{{cancelText}}</button>
+              <button type="button" :class="okClass" @click="ok">{{okText}}</button>
+            </slot>
+          </div>
         </div>
       </div>
     </div>
+    <div class="modal-backdrop in"></div>
   </div>
-  <div class="modal-backdrop in"></div>
-</div>
+</transition>

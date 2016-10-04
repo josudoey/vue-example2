@@ -2,26 +2,16 @@
   display: block;
 }
 
-.modal-transition {
-  transition: all .6s ease;
+.modal-enter-active {
+  transition: all .3s ease;
 }
 
-.modal-leave {
-  border-radius: 1px !important;
+.modal-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
-.modal-transition .modal-dialog,
-.modal-transition .modal-backdrop {
-  transition: all .5s ease;
-}
-
-.modal-enter .modal-dialog,
-.modal-leave .modal-dialog {
-  opacity: 0;
-  transform: translateY(-30%);
-}
-
-.modal-enter .modal-backdrop,
-.modal-leave .modal-backdrop {
+.modal-enter,
+.modal-leave-active {
+  padding-left: 10px;
   opacity: 0;
 }

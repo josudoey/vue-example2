@@ -43,11 +43,11 @@ var vm = module.exports = {
     },
     okClass: {
       type: String,
-      default: 'btn blue'
+      default: 'btn btn-primary'
     },
     cancelClass: {
       type: String,
-      default: 'btn red btn-outline'
+      default: 'btn btn-default'
     }
   },
   data: function () {
@@ -64,27 +64,10 @@ var vm = module.exports = {
       }
     }
   },
-  created: function () {
-    if (this.show) {
-      document.body.className += ' modal-open';
-    }
-  },
-  beforeDestroy: function () {
-    document.body.className = document.body.className.replace(/\s?modal-open/, '');
-  },
+  created: function () {},
+  beforeDestroy: function () {},
   watch: {
-    show: function (value) {
-      if (value) {
-        document.body.className += ' modal-open';
-      } else {
-        if (!this.duration) {
-          this.duration = window.getComputedStyle(this.$el)['transition-duration'].replace('s', '') * 1000;
-        }
-        window.setTimeout(function () {
-          document.body.className = document.body.className.replace(/\s?modal-open/, '');
-        }, this.duration || 0);
-      }
-    }
+    show: function (val, old) {}
   },
   methods: {
     ok: function () {

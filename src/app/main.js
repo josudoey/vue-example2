@@ -1,6 +1,6 @@
 global.jQuery = require('jquery');
 require("bootstrap/dist/css/bootstrap.min.css");
-require("bootstrap/dist/js/bootstrap.min.js")
+require("bootstrap/dist/js/bootstrap.min.js");
 var Vue = require("vue");
 
 //ref https://github.com/vuejs/vue-router/tree/1.0
