@@ -64,7 +64,7 @@ var router = new VueRouter({
     path: '/:tail*',
     name: '404',
     component: {
-      template: "'<span><h3>Oops!! page not found.<h3><br />path={{$route.path}}<br />params={{$route.params}}</span>"
+      template: "<span><h3>Oops!! page not found.</h3><p><br />path={{$route.path}}<br />params={{$route.params}}</p></span>"
     }
   }]
 })
