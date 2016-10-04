@@ -1,3 +1,4 @@
+//ref https://vuejs.org/guide/plugins.html
 require("bootstrap/dist/css/bootstrap.min.css");
 var $ = require("jquery");
 var Vue = require("vue");
@@ -6,8 +7,8 @@ Plug.install = function (Vue, opts) {
   opts = opts || {};
   zIndex = opts.zIndex || 16777271;
   var el = opts.el;
-  var vue = $(el);
-  if (vue.length === 0) {
+  var vm = $(el);
+  if (vm.length === 0) {
     vue = $('<div style="position: absolute; right: 0; margin-bottom: 0; z-index:' + zIndex + '"></div>');
     vue.prependTo("body");
   }
@@ -23,7 +24,7 @@ Plug.install = function (Vue, opts) {
     return function (msg, ms) {
       ms = ms || 3000;
       var el = $('<div class="alert ' + cls + '"role="alert" style="display: none; padding: 3px 6px 3px 6px; margin-bottom: 3px;">' + msg + '</div>');
-      vue.append(el);
+      vm.append(el);
       el.slideDown(function () {
         el.delay(ms).slideUp(function () {
           el.remove();
