@@ -1,18 +1,21 @@
 <span>
-  <h4>modal example! {{message}}</h4>
-  <modal title="Modal Title" :show="showBase" @ok="showBase=false;ok()" @cancel="showBase=false;cancel()" @keyup.esc="showBase=false;cancel()">
-    Base Modal
-  </modal>
+  <h4>modal example!</h4>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  demo
+</button>
 
-  <modal title="Modal Title" :show="showModal" @ok="showModal=false;ok()" @cancel="showModal=false;cancel()">
-    <div>Modal</div>
-    <div slot="header">Modal Header</div>
-    <div slot="title">Modal Title</div>
-    <div slot="footer">Modal Footer</div>
-  </modal>
-  <div class="input-group-btn">
-    <button class="btn btn-info" @click="showBase=true">Base</button>
-    <button class="btn btn-info" @click="showModal=true">Modal</button>
-  </div>
-</div>
+<modal id="myModal" @ok="$alert('['+subject+']'+message)" @event="$alert($event)">
+   <form>
+     <div class="form-group">
+       <label for="subject" class="control-label">Subject</label>
+       <input type="text" class="form-control" v-model="subject">
+     </div>
+     <div class="form-group">
+       <label for="message" class="control-label">Message</label>
+       <textarea class="form-control" v-model="message"></textarea>
+     </div>
+   </form>
+</modal>
+
+
 </span>

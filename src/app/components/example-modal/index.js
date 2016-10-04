@@ -2,6 +2,8 @@
 //ref https://vuejs.org/guide/components.html#Custom-Events
 require("./style.css");
 var Vue = require("vue");
+var $alert = require("../../plugs/alert");
+Vue.use($alert);
 var template = require("./template.html");
 var modal = Vue.extend({
   name: "modal",
@@ -15,18 +17,10 @@ var Component = module.exports = Vue.extend({
   template: template,
   data: function () {
     return {
-      "showBase": false,
-      "showModal": false,
-      "message": ""
+      "message": "",
+      "subject": ""
     };
   },
-  methods: {
-    ok: function () {
-      this.message = "ok";
-    },
-    cancel: function () {
-      this.message = "cancel";
-    }
-  }
+  methods: {}
 });
 
