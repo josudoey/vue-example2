@@ -31,25 +31,25 @@ var router = new VueRouter({
     name: 'alert',
     component: function (resolve) {
       //ref http://router.vuejs.org/en/advanced/lazy-loading.html
-      require(['./components/alert'], resolve);
+      require(['app/components/alert'], resolve);
     }
   }, {
     path: '/foo',
     name: 'foo',
     component: function (resolve) {
-      require(['./components/foo'], resolve);
+      require(['app/components/foo'], resolve);
     }
   }, {
     path: '/bar',
     name: 'bar',
     component: function (resolve) {
-      require(['./components/bar'], resolve);
+      require(['app/components/bar'], resolve);
     }
   }, {
     path: '/modal',
     name: 'example-modal',
     component: function (resolve) {
-      require(['./components/example-modal'], resolve);
+      require(['app/components/example-modal'], resolve);
     }
   }, {
     path: '/',

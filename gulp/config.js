@@ -20,6 +20,7 @@ var config = module.exports = {
     },
     resolve: {
       alias: {
+        app: projectPath + "/src/app",
         vue: 'vue/dist/vue.js'
       }
     },
