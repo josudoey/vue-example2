@@ -42,4 +42,5 @@ Plug.install = function (Vue, opts) {
 
 };
 module.exports = Plug;
+Vue.use(Plug);
 

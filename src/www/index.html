@@ -5,73 +5,9 @@
 
 <body>
   <div id="app">
-    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Hello App</a>
-        </div>
-        <div id="navbar-collapse" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li>
-              <router-link :to="{name:'home'}">Home</router-link>
-            </li>
-            <li>
-              <!-- https://router.vuejs.org/en/api/router-link.html -->
-              <router-link :to="{name:'foo'}">Foo</router-link>
-            </li>
-            <li>
-              <router-link :to="{name:'alert'}">Alert</router-link>
-            </li>
-            <li>
-              <router-link :to="{name:'example-modal'}">Modal</router-link>
-            </li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#action/empty">Action</a></li>
-                <li><a href="#action/another">Another action</a></li>
-                <li><a href="#action/else">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#link/sparated">Separated link</a></li>
-                <li><a href="#link/more">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-
-          <form class="navbar-form navbar-right">
-            <div class="input-group">
-              <input class="form-control" type="text" v-model="id" placeholder="name" @keyup.enter="$router.push({name:'bar',  query:{id:id}})">
-              <div class="input-group-btn">
-                <router-link class="btn btn-default" :to="{name:'bar', query:{id:id}}">Bar</router-link>
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
-    <div class="container">
-      <h5>{{message}}</h5>
-      <div class="jumbotron">
-        <transition name="slide">
-          <keep-alive>
-            <router-view ref="view"></router-view>
-          </keep-alive>
-        </transition>
-      </div>
-    </div>
-    </div>
-    <script src="./assets/main.js"></script>
+    <router-view ref="view"></router-view>
+  </div>
+  <script src="./assets/main.js"></script>
 </body>
-
 
 </html>

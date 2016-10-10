@@ -27,6 +27,10 @@ var vm = module.exports = {
   watch: {},
   methods: {
     ok: function (e) {
+      if (this.$refs.modalForm.checkValidity() === false) {
+        return;
+      }
+      e.$el = this.$el;
       this.$emit('event', 'ok', e);
       this.$emit('ok', e);
     }
