@@ -33,7 +33,7 @@
     </ul>
   </div>
 
-  <modal id="add" @ok="add">
+  <bs-modal id="add" @ok="add">
   <h4 slot="header">Add User</h4>
   <form class="form-group" style="max-width: 330px;padding: 15px;margin: 0 auto;">
     <input type="text" class="form-control" placeholder="Name" v-model="user.name" required autofocus>
@@ -44,9 +44,9 @@
       <option>admin</option>
     </select>
   </form>
-  </modal>
+  </bs-modal>
 
-  <modal id="edit" @ok="update">
+  <bs-modal id="edit" @ok="update">
   <h4 slot="header">Update User</h4>
   <form class="form-group" style="max-width: 330px;padding: 15px;margin: 0 auto;">
     <input type="text" class="form-control" placeholder="Name" v-model="user.name" required disabled>
@@ -57,5 +57,5 @@
       <option>admin</option>
     </select>
   </form>
-  </modal>
+  </bs-modal>
 </span>

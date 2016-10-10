@@ -5,6 +5,6 @@
     <input type="text" class="form-control" placeholder="User" v-model="user" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input type="password" class="form-control" placeholder="Password" v-model="password" required>
-    <input type="submit" class="btn btn-lg btn-primary btn-block" @click="login" :disabled="disableLogin" value="Sign in"></input>
+    <button type="submit" class="btn btn-lg btn-primary btn-block" @click="login" :disabled="disableLogin">Sign in</button>
   </form>
 </div>

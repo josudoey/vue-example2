@@ -6,11 +6,14 @@ Vue.use(VueRouter);
 
 var dashbaord = function (name, path) {
   var components = {
-    "list": function (resolve) {
-      require(["app/components/list"], resolve)
+    "demo-list": function (resolve) {
+      require(["app/components/demo-list"], resolve)
     },
-    "alert": function (resolve) {
-      require(["app/components/alert"], resolve)
+    "demo-table": function (resolve) {
+      require(["app/components/demo-table"], resolve)
+    },
+    "demo-alert": function (resolve) {
+      require(["app/components/demo-alert"], resolve)
     }
   };
 
@@ -51,8 +54,9 @@ var router = new VueRouter({
         name: 'list'
       }
     },
-    dashbaord('list', '/list'),
-    dashbaord('alert', '/alert'), {
+    dashbaord('demo-list', '/list'),
+    dashbaord('demo-table', '/table'),
+    dashbaord('demo-alert', '/alert'), {
       name: 'login',
       path: '/login',
       component: function (resolve) {

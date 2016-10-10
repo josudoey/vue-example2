@@ -11,7 +11,7 @@ module.exports = {
   },
   template: require("./template.html"),
   components: {
-    "modal": require("app/mixins/modal")
+    "bs-modal": require("app/mixins/bs-modal")
   },
   created: function () {
     this.refresh();
