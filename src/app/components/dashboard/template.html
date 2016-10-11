@@ -12,15 +12,9 @@
       </div>
       <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li>
-          <router-link :to="{name:'demo-list'}">List</router-link>
-          </li>
-          <li>
-          <router-link :to="{name:'demo-table'}">Table</router-link>
-          </li>
-          <li>
-          <router-link :to="{name:'demo-alert'}">Alert</router-link>
-          </li>
+          <router-link :to="{name:'demo-list'}" tag="li"><a>List</a></router-link>
+          <router-link :to="{name:'demo-table'}" tag="li"><a>Table</a></router-link>
+          <router-link :to="{name:'demo-alert'}" tag="li"><a>Alert</a></router-link>
         </ul>
         <form class="navbar-form navbar-right">
           <a href="" @click="logout">logout</a>

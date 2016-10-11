@@ -51,7 +51,7 @@ var router = new VueRouter({
       name: 'home',
       path: '/dashboard',
       redirect: {
-        name: 'list'
+        name: 'demo-list'
       }
     },
     dashbaord('demo-list', '/list'),
